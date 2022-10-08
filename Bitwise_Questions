@@ -1,0 +1,169 @@
+Question 1   BITWISE OPERATOR . 
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int a,b;
+    cin>>a>>b;
+
+    cout<<"(a & b) = "<<(a&b)<<endl;
+    cout<<"(a | b) = "<<(a|b)<<endl;
+    cout<<"(a ^ b) = "<<(a^b)<<endl;
+    cout<<"(~ a) = "<<(~a)<<endl;
+    cout<<"(a << 1) = "<<(a<<1)<<endl;
+    cout<<"(b >> 1) = "<<(b>>1)<<endl;
+    return 0;
+}
+
+
+
+Question 2 : Fibonacci Series
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int n;
+    cout<<"Enter the number "<<endl;
+    cin>>n;
+    int a=0;
+    int b=1;
+    cout<<a<<" "<<b<<" ";
+    for (int i = 0; i < n; i++)
+    {
+        int c=a+b;
+        cout<<c<<" ";
+        a=b;
+        b=c;
+    }
+    
+    return 0;
+}
+
+Question 3 : Prime Number
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    int i=2;
+    bool isprime=1;
+    while (i<n)
+    {
+        if(n%2==0)
+        {
+            isprime=0;
+            break;
+        }
+        i++;
+    }
+    if (isprime==1)
+    {
+        cout<<"Number is prime"<<endl;
+    }
+    else
+    {
+        cout<<"not prime"<<endl;
+    }
+   
+    return 0;
+}
+
+Leet_CODE Question 4 :  Subtract the Product and Sum of digit of an integer ?
+
+class Solution {
+public:
+    int subtractProductAndSum(int n) {
+        int ans;
+        int prod=1;
+        int sum=0;
+        while(n!=0)
+        {
+            ans=n%10;
+            prod*=ans;
+            sum+=ans;
+            n=n/10;
+        }
+        return prod-sum;
+        
+    }
+};
+
+Leet_Code Question 5 : Number of 1 bit ?
+
+class Solution {
+public:
+    int hammingWeight(uint32_t n) {
+        int count=0;
+        while(n!=0)
+        {
+            if(n&1)
+            {
+                count++;
+            }
+            n=n>>1;
+        }
+        return count;
+    }
+};
+
+Leet_Code Question 6 : Reverse an interge ?
+
+class Solution {
+public:
+    int reverse(int x) {
+        int ans =0;
+        while(x!=0)
+        {
+            int bit=x%10;
+            if(ans>INT_MAX/10 || ans<INT_MIN/10)
+            {
+                return 0;
+            }
+            ans=(ans*10)+bit;
+            x=x/10;
+        }
+        return ans;
+    }
+};
+
+Leet_Code Question 6 : Power of TWO ?
+
+class Solution {
+public:
+    bool isPowerOfTwo(int n) {
+        for(int i=0;i<=30;i++)
+        {
+            int ans=pow(n,i);
+            if(ans==n)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+};
+
+Leet_Code Question 6 : Complement of base 10 integer ?
+
+class Solution {
+public:
+    int bitwiseComplement(int n) {
+        int m=n;
+        int marks=0;
+        if(m==0)
+        {
+            return 1;
+        }
+        while(m!=0)
+        {
+            marks=(marks<<1)|1;
+            m=m>>1;
+        }
+        int ans=(~n)&marks;
+        return ans;
+    }
+};
